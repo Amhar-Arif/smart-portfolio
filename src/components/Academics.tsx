@@ -1,12 +1,26 @@
+import { motion } from 'framer-motion';
+
 const Academics = () => {
   return (
     <section id="academics">
-      <div className="container animate-fade-in delay-400">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="section-title"><span className="gradient-text">Academics & Leadership</span></h2>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           
-          <div className="glass-panel">
+          <motion.div
+            className="glass-panel"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <h3 style={{ fontSize: '1.4rem' }}>🎓 Education</h3>
             </div>
@@ -22,9 +36,15 @@ const Academics = () => {
               <p style={{ color: 'var(--accent-purple)' }}>Kekunagolla National School (2018 – 2020)</p>
               <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Combined Mathematics (A), Chemistry (B), Physics (B)</p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="glass-panel">
+          <motion.div
+            className="glass-panel"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <h3 style={{ fontSize: '1.4rem' }}>🏆 Leadership & Certifications</h3>
             </div>
@@ -41,10 +61,10 @@ const Academics = () => {
               <li style={{ marginBottom: '0.5rem' }}>Python for Data Science, AI & Dev – IBM</li>
               <li>Programming with JavaScript – Meta</li>
             </ul>
-          </div>
+          </motion.div>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

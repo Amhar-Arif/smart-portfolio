@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import './App.css';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,24 +7,6 @@ import Projects from './components/Projects';
 import Academics from './components/Academics';
 
 function App() {
-  
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.glass-panel, .section-title').forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const scrollTo = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById(id);
