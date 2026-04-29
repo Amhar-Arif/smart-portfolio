@@ -1,11 +1,27 @@
+import { motion } from 'framer-motion';
+
 const Projects = () => {
   return (
     <section id="projects">
-      <div className="container animate-fade-in delay-400">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="section-title"><span className="gradient-text">Featured Projects</span></h2>
         
         <div className="project-grid">
-          <div className="glass-panel" style={{ position: 'relative', overflow: 'hidden' }}>
+          <motion.div
+            className="glass-panel"
+            style={{ position: 'relative', overflow: 'hidden' }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
               <div>
                 <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)' }}>Wealthy</h3>
@@ -13,8 +29,8 @@ const Projects = () => {
                 <p className="text-muted" style={{ fontSize: '0.9rem' }}>Feb 2026 – Present (Ongoing)</p>
               </div>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <a href="#" className="glass-panel" style={{ padding: '0.5rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>GitHub</a>
-                <a href="#" className="glass-panel" style={{ padding: '0.5rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>Live</a>
+                <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="#" className="glass-panel" style={{ padding: '0.5rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>GitHub</motion.a>
+                <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="#" className="glass-panel" style={{ padding: '0.5rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>Live</motion.a>
               </div>
             </div>
             
@@ -35,9 +51,9 @@ const Projects = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

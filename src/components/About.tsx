@@ -1,7 +1,15 @@
+import { motion } from 'framer-motion';
+
 const About = () => {
   return (
     <section id="about">
-      <div className="container animate-fade-in delay-100">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="section-title"><span className="gradient-text">About Me</span></h2>
         
         <div className="glass-panel" style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -15,7 +23,7 @@ const About = () => {
             Beyond code, I value resilience, discipline, and teamwork. Serving as the University Boxing Captain has shaped my leadership approach, translating directly to how I mentor interns and collaborate cross-functionally to deliver robust software solutions.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

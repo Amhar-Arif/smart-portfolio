@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const Experience = () => {
   const experiences = [
     {
@@ -27,12 +29,25 @@ const Experience = () => {
 
   return (
     <section id="experience">
-      <div className="container animate-fade-in delay-300">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="section-title"><span className="gradient-text">Experience</span></h2>
         
         <div className="timeline">
           {experiences.map((exp, idx) => (
-            <div key={idx} className="timeline-item glass-panel">
+            <motion.div
+              key={idx}
+              className="timeline-item glass-panel"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.2 }}
+            >
               <div className="timeline-dot"></div>
               <h3 style={{ fontSize: '1.5rem', color: 'var(--text-main)' }}>{exp.role}</h3>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap' }}>
@@ -44,10 +59,10 @@ const Experience = () => {
                   <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
